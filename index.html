@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .box, .box-small {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: aliceblue;
+      margin: 2rem;
+      border: 1px solid grey;
+    }
+
+    .box {
+      width: 10rem;
+      height: 10rem;
+
+      transition: all 1s;
+    }
+
+    .box-small {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    .modal {
+      position: absolute;
+
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: burlywood;
+
+      transition: all 1s;
+    }
+
+
+    .modal-big--1{
+      width: 40rem;
+      height: 20rem;
+
+      bottom: 150%;
+      left: 15%;
+    }
+
+    .modal-big--2{
+      width: 40rem;
+      height: 20rem;
+
+      bottom: 150%;
+      left: 50%;
+      transform: translateX(-27%);
+    }
+
+    .modal-big--3 {
+      width: 40rem;
+      height: 20rem;
+
+      bottom: 150%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .modal-big--4 {
+      width: 40rem;
+      height: 20rem;
+
+      bottom: 150%;
+      left: 50%;
+      transform: translateX(-73%);
+    }
+
+    .modal-big--5 {
+      width: 40rem;
+      height: 20rem;
+
+      bottom: 150%;
+      left: 50%;
+      transform: translateX(-96%);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box-container">
+    <div class="box box--1">
+      <div class="item">1</div>
+      <div class="modal">modal</div>
+    </div>
+
+    <div class="box box--2">
+      <div class="item">2</div>
+      <div class="modal">modal</div>
+    </div>
+    <div class="box box--3">
+      <div class="item">3</div>
+      <div class="modal">modal</div>
+    </div>
+    <div class="box box--4">
+      <div class="item">4</div>
+      <div class="modal">modal</div>
+    </div>
+    <div class="box box--5">
+      <div class="item">5</div>
+      <div class="modal">
+        <button class="close">x</button>
+        modal
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $('.box').on("click", function() {
+    if($(this).hasClass('box--1')){
+      $(this).find( ".modal" ).addClass('modal-big--1');
+    } else if ($(this).hasClass('box--2')){
+      $(this).find( ".modal" ).addClass('modal-big--2');
+    } else if ($(this).hasClass('box--3')){
+      $(this).find( ".modal" ).addClass('modal-big--3');
+    } else if ($(this).hasClass('box--4')){
+      $(this).find( ".modal" ).addClass('modal-big--4');
+    } else {
+      $(this).find( ".modal" ).addClass('modal-big--5');
+    }
+
+    $('.box-container').css('height', '40rem');
+    $('.box').addClass('box-small');
+  });
+</script>
+</html>
